@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-4 mx-auto mt-5">
+      <h2>Login</h2>
+      <form (submit)="onSubmit()" [formGroup]="loginForm">
+        <div *ngIf="submitted && this.error!=''" class="invalid-feedback d-block text-center">
+              {{this.error}}
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" formControlName="email"  autocomplete="off"  placeholder="Enter email" >
+          <div *ngIf="submitted && l.email.errors" class="invalid-feedback d-block">
+            <div *ngIf="l.email.errors.required">Email is required</div>
+            <div *ngIf="l.email.errors.email">Email is invalid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" formControlName="password"  autocomplete="off" placeholder="Enter password" >
+          <div *ngIf="submitted && l.password.errors" class="invalid-feedback d-block">
+            <div *ngIf="l.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
